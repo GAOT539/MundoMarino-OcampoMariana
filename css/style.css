@@ -30,3 +30,47 @@
 .payment-message.success,.form-message.is-visible{color:#208a61;background:#daf4e6;padding:12px}
 .form-message{grid-column:1/-1}
 @media(max-width:480px){.cart-modal{padding:30px 22px}}
+
+/* Navegación móvil y escalado fluido */
+.menu-toggle{display:none;border:0;background:transparent;color:var(--navy);cursor:pointer;padding:8px;align-items:center;gap:4px}
+.menu-toggle span{display:block;width:22px;height:2px;background:var(--navy);transition:.25s}
+.menu-toggle b{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-left:5px}
+.page-hero.hero-slider{background-image:var(--hero-image),linear-gradient(110deg,var(--navy),#095368);background-position:center;background-size:cover;transition:background-image .35s ease}
+.page-hero.hero-slider .hero-overlay{position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(2,22,31,.78),rgba(2,22,31,.52)),rgba(2,22,31,.2);backdrop-filter:blur(2px)}
+.page-hero.hero-slider .container{position:relative;z-index:1;text-shadow:0 2px 5px rgba(0,0,0,.62)}
+.page-hero.hero-slider .eyebrow{text-shadow:0 1px 3px rgba(0,0,0,.75)}
+.page-hero.hero-slider h1{text-shadow:0 3px 9px rgba(0,0,0,.78)}
+.page-hero.hero-slider .hero-copy{text-shadow:0 2px 5px rgba(0,0,0,.7)}
+.page-hero.hero-slider:after{content:none}
+@media(max-width:800px){
+  .container{width:min(100% - 32px,1160px)}
+  .nav{min-height:76px;height:auto;padding:14px 0;gap:12px;flex-wrap:wrap}
+  .brand{font-size:clamp(15px,4vw,18px)}
+  .menu-toggle{display:flex;margin-left:auto}
+  .nav-links{display:none;order:4;width:100%;flex-direction:column;gap:0;padding:8px 0 4px;border-top:1px solid var(--line)}
+  .nav-links.is-open{display:flex;animation:menuIn .25s ease both}
+  .nav-links a{padding:12px 4px;border-bottom:1px solid var(--line)}
+  .nav-cta{font-size:12px}
+  .hero,.page-hero{min-height:clamp(500px,72vh,650px)}
+  .hero h1,.page-hero h1{font-size:clamp(44px,11vw,86px);letter-spacing:-3px}
+  .hero-copy{font-size:clamp(15px,3.8vw,17px)}
+  .section-heading h2,h2{font-size:clamp(34px,8vw,49px)}
+  .card-body h3,.product-info h3{font-size:clamp(19px,4.8vw,22px)}
+  .news-grid,.products-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+  .contact-section{grid-template-columns:1fr;gap:55px}
+  .legal-section{grid-template-columns:1fr;gap:45px}
+  .hero-stat{right:22px;bottom:46px}
+  .hero-stat strong{font-size:clamp(38px,10vw,54px)}
+}
+@media(max-width:480px){
+  .nav-cta{font-size:0}
+  .nav-cta .cart-count{font-size:11px}
+  .nav-cta span{font-size:16px}
+  .hero-content{padding:44px 0 120px}
+  .hero-stat{left:16px;right:auto}
+  .section-heading,.impact-inner,.volunteer-inner{gap:24px}
+  .contact-form{display:flex;flex-direction:column}
+  .footer-inner{align-items:flex-start;flex-wrap:wrap}
+  .footer-bottom{flex-direction:column;gap:8px}
+}
+@keyframes menuIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}

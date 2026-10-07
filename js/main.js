@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const hero = document.querySelector('.hero-slider');
   if (hero) {
     const slides = hero.dataset.slides.split(',');
-    let currentSlide = 0;
+    let currentSlide = Number(hero.dataset.start) || 0;
     const setHeroImage = (image) => {
       hero.style.setProperty('--hero-image', `url("${new URL(image, document.baseURI).href}")`);
     };
@@ -16,6 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 350);
     }, 5000);
   }
+
+  const menuToggle = document.querySelector('.menu-toggle');
+  const siteMenu = document.querySelector('#site-menu');
+  menuToggle?.addEventListener('click', () => {
+    const isOpen = siteMenu.classList.toggle('is-open');
+    menuToggle.classList.toggle('is-open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+  siteMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      siteMenu.classList.remove('is-open');
+      menuToggle?.classList.remove('is-open');
+      menuToggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
 
   const modalBackdrop = document.querySelector('.modal-backdrop');
   const cartItems = document.querySelector('.cart-items');
