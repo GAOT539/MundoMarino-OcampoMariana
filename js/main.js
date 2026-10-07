@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
       message.classList.remove('success');
       return;
     }
-    message.textContent = '¡Transacción simulada con éxito! Gracias por apoyar al océano.';
+    message.textContent = '¡Transacción realizada con éxito! Gracias por apoyar al océano.';
     message.classList.add('success');
   });
 
